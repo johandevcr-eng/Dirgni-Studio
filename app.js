@@ -118,40 +118,39 @@ const SERVICES_DATA = {
         {
             name: "Marca Personal",
             description: "Te ayudo a proyectar una imagen auténtica y profesional a través de nuestro servicio de marca personal que incluye maquillaje, peinado y fotografía, proyectamos tu imagen con propósito con imágenes que reflejan tu personalidad y estilo, ideales para redes sociales, perfiles profesionales y material de branding. La imagen en lo profesional, es un diferenciador clave: una imagen estratégica y coherente abre puertas, genera confianza y deja una huella imborrable en cada interacción. Cada elección, desde el maquillaje y el peinado hasta la ropa y la postura, comunica algo sobre ti. La imagen no se trata de cumplir estándares, sino de expresar tu identidad con intención y propósito. Cuando te sientes bien con tu imagen, se nota. Y cuando proyectas seguridad, el mundo responde",
-            duration: "#",
+            duration: "4h",
             price: "Consultar",
             images: [
-                "img/dirgni_asesoria12.avif"
+                "img/dirgni_asesoria0.avif"
             ]
         },
         {
             name: "Más que una imagen, una identidad",
             description: "Tu marca personal es el reflejo de quién eres, lo que representas y el mensaje que quieres comunicar. Una sesión de fotos no solo captura tu imagen, sino que te permite reconocerte, redescubrirte y empoderarte. En redes sociales y plataformas profesionales, las imágenes tienen un impacto inmediato. Un retrato bien hecho no solo te hace ver profesional, sino accesible, cercano y confiable, creando una conexión genuina con quienes te ven. Una sesión de marca personal bien planificada te ayuda a destacar en un mercado competitivo, transmitiendo credibilidad y diferenciándote de los demás. ​Más que un simple día de fotos, una sesión de marca personal es un paso hacia el crecimiento de tu imagen profesional y personal. Es un acto de confianza en ti mismo, en tu trayectoria y en lo que tienes para ofrecer al mundo.",
-            duration: "#",
+            duration: "4h",
             price: "Consultar",
             images: [
                 "img/dirgni_asesoria1.avif",
-                "img/dirgni_asesoria2.jpg",
+                "img/dirgni_asesoria2.avif",
                 "img/dirgni_asesoria3.avif",
                 "img/dirgni_asesoria4.avif",
                 "img/dirgni_asesoria5.avif",
-                "img/dirgni_asesoria6.avif"
+                "img/dirgni_asesoria6.avif",
+                "img/dirgni_asesoria7.avif",
+                "img/dirgni_asesoria8.avif",
+                "img/dirgni_asesoria9.avif",
+                "img/dirgni_asesoria10.avif",
+                "img/dirgni_asesoria11.avif",
+                "img/dirgni_asesoria12.avif",
+                "img/dirgni_asesoria13.avif",
+                "img/dirgni_asesoria14.avif",
+                "img/dirgni_asesoria15.avif",
+                "img/dirgni_asesoria16.avif",
+                "img/dirgni_asesoria17.avif"
             ]
         }
     ]
 };
-
-
-const GALLERY_IMAGES = [
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" },
-    { url: "#", title: "#" }
-];
 
 
 const TESTIMONIALS = [
@@ -186,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initNavbarScroll();
     initMobileMenu();
     initServiceTabs();
-    initGalleryAndLightbox();
     initTestimonials();
     initScrollAnimations();
 });
@@ -236,7 +234,7 @@ function initServiceTabs() {
 
 
     tabsContainer.innerHTML = categories.map((cat, idx) => `
-        <button data-cat="${cat.id}" class="px-6 py-3 border-b-2 border-transparent text-xs uppercase tracking-[0.2em] text-luxuryBlack/60 hover:text-luxuryGold hover:border-luxuryGold transition-all duration-300 ${idx === 0 ? 'service-tab-active' : ''}">
+        <button data-cat="${cat.id}" class="px-6 py-4 border-b-2 border-transparent text-base uppercase tracking-[0.2em] text-luxuryBlack/60 hover:text-luxuryGold hover:border-luxuryGold transition-all duration-300 ${idx === 0 ? 'service-tab-active' : ''}">
             ${cat.label}
         </button>
     `).join('');
@@ -309,7 +307,7 @@ window.stopCarouselAutoplay = function(serviceKey) {
             <div class="bg-white border border-luxuryNude/20 group hover:shadow-xl transition-all duration-500 flex flex-col justify-between opacity-0 translate-y-4 animate-fade-in" style="animation-delay: ${idx * 0.15}s">
                 
                 <!-- CARRUSEL AUTOMÁTICO -->
-                <div class="relative overflow-hidden aspect-square group/carousel"
+                <div class="relative overflow-hidden aspect-[3/4] group/carousel"
                      onmouseenter="stopCarouselAutoplay('${serviceKey}')"
                      onmouseleave="${imageList.length > 1 ? `startCarouselAutoplay('${serviceKey}')` : ''}">
                     
@@ -377,67 +375,6 @@ window.stopCarouselAutoplay = function(serviceKey) {
 
 
 let currentLightboxIdx = 0;
-
-function initGalleryAndLightbox() {
-    const galleryGrid = document.getElementById("gallery-grid");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const closeBtn = document.getElementById("lightbox-close");
-    const prevBtn = document.getElementById("lightbox-prev");
-    const nextBtn = document.getElementById("lightbox-next");
-
-
-    galleryGrid.innerHTML = GALLERY_IMAGES.map((img, idx) => `
-        <div class="relative group cursor-pointer overflow-hidden aspect-square border border-luxuryNude/20" data-index="${idx}">
-            <img src="${img.url}" alt="${img.title}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.95]">
-            <div class="absolute inset-0 bg-luxuryBlack/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
-                <span class="text-luxuryGold mb-2"><i data-lucide="eye" class="w-5 h-5"></i></span>
-                <span class="text-white text-xs uppercase tracking-[0.15em] text-center font-light">${img.title}</span>
-            </div>
-        </div>
-    `).join('');
-
-
-    lucide.createIcons();
-
-    const openLightbox = (index) => {
-        currentLightboxIdx = index;
-        lightboxImg.src = GALLERY_IMAGES[index].url;
-        lightboxCaption.textContent = GALLERY_IMAGES[index].title;
-        lightbox.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-    };
-
-    const closeLightbox = () => {
-        lightbox.classList.add("hidden");
-        document.body.style.overflow = "";
-    };
-
-    const navigateLightbox = (direction) => {
-        currentLightboxIdx = (currentLightboxIdx + direction + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
-        lightboxImg.src = GALLERY_IMAGES[currentLightboxIdx].url;
-        lightboxCaption.textContent = GALLERY_IMAGES[currentLightboxIdx].title;
-    };
-
-    galleryGrid.querySelectorAll("[data-index]").forEach(item => {
-        item.addEventListener("click", () => {
-            openLightbox(parseInt(item.dataset.index, 10));
-        });
-    });
-
-    closeBtn.addEventListener("click", closeLightbox);
-    prevBtn.addEventListener("click", () => navigateLightbox(-1));
-    nextBtn.addEventListener("click", () => navigateLightbox(1));
-
-
-    window.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowLeft") navigateLightbox(-1);
-        if (e.key === "ArrowRight") navigateLightbox(1);
-    });
-}
 
 
 function initTestimonials() {
