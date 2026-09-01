@@ -32,7 +32,9 @@ const SERVICES_DATA = {
                 "img/dirgni_eventos5.avif",
                 "img/dirgni_eventos6.avif",
                 "img/dirgni_eventos7.avif",
-                "img/dirgni_eventos8.avif"
+                "img/dirgni_eventos8.avif",
+                "img/dirgni_eventos9.avif",
+                "img/dirgni_eventos10.avif"
             ]
                 
         },
@@ -119,7 +121,6 @@ const SERVICES_DATA = {
             duration: "#",
             price: "Consultar",
             images: [
-                "img/dirgni_asesoria11.avif",
                 "img/dirgni_asesoria12.avif"
             ]
         },
@@ -130,15 +131,11 @@ const SERVICES_DATA = {
             price: "Consultar",
             images: [
                 "img/dirgni_asesoria1.avif",
-                "img/dirgni_asesoria2.avif",
+                "img/dirgni_asesoria2.jpg",
                 "img/dirgni_asesoria3.avif",
                 "img/dirgni_asesoria4.avif",
                 "img/dirgni_asesoria5.avif",
-                "img/dirgni_asesoria6.avif",
-                "img/dirgni_asesoria7.avif",
-                "img/dirgni_asesoria8.avif",
-                "img/dirgni_asesoria9.avif",
-                "img/dirgni_asesoria10.avif"
+                "img/dirgni_asesoria6.avif"
             ]
         }
     ]
