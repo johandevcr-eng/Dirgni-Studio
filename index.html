@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="main.css">
 
     <!-- Schema.org Structured Data -->
-    <script type="application/ld-json">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BeautySalon",
@@ -104,58 +104,59 @@
 <body class="bg-luxuryWarmIvory text-luxuryBlack font-sans antialiased selection:bg-luxuryNude selection:text-luxuryBlack">
 
     <!-- Header / Sticky Navigation -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent py-6 border-b border-transparent">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-            <a href="#inicio" class="text-2xl lg:text-3xl font-serif tracking-[0.2em] hover:opacity-85 transition-opacity text-white duration-300" id="header-logo">
-                DIRGNI STUDIO
+    <!-- Se ajustó el espaciado en secciones para móvil y el menú fullscreen -->
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent py-4 lg:py-6 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+        <a href="#inicio" class="text-xl sm:text-2xl lg:text-3xl font-serif tracking-[0.2em] hover:opacity-85 transition-opacity text-white duration-300" id="header-logo">
+            DIRGNI STUDIO
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center space-x-10 text-xs uppercase tracking-[0.2em]" id="desktop-menu">
+            <a href="#inicio" class="text-white hover:text-luxuryGold transition-colors duration-300">Inicio</a>
+            <a href="#filosofia" class="text-white hover:text-luxuryGold transition-colors duration-300">Nosotros</a>
+            <a href="#servicios" class="text-white hover:text-luxuryGold transition-colors duration-300">Servicios</a>
+            <a href="#galeria" class="text-white hover:text-luxuryGold transition-colors duration-300">Galería</a>
+            <a href="#opiniones" class="text-white hover:text-luxuryGold transition-colors duration-300">Opiniones</a>
+            <a href="#contacto" class="text-white hover:text-luxuryGold transition-colors duration-300">Contacto</a>
+        </nav>
+
+        <!-- CTA Desktop Button -->
+        <div class="hidden lg:block">
+            <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center px-6 py-3 border border-white text-white text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-luxuryBlack transition-all duration-300">
+                Reservar Cita
             </a>
+        </div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center space-x-10 text-xs uppercase tracking-[0.2em]" id="desktop-menu">
-                <a href="#inicio" class="text-white hover:text-luxuryGold transition-colors duration-300">Inicio</a>
-                <a href="#filosofia" class="text-white hover:text-luxuryGold transition-colors duration-300">Nosotros</a>
-                <a href="#servicios" class="text-white hover:text-luxuryGold transition-colors duration-300">Servicios</a>
-                <a href="#galeria" class="text-white hover:text-luxuryGold transition-colors duration-300">Galería</a>
-                <a href="#opiniones" class="text-white hover:text-luxuryGold transition-colors duration-300">Opiniones</a>
-                <a href="#contacto" class="text-white hover:text-luxuryGold transition-colors duration-300">Contacto</a>
-            </nav>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:opacity-80 transition-opacity focus:outline-none" aria-label="Abrir menú de navegación">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </div>
 
-            <!-- CTA Desktop Button -->
-            <div class="hidden lg:block">
-                <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center px-6 py-3 border border-white text-white text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-luxuryBlack transition-all duration-300">
-                    Reservar Cita
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white hover:opacity-80 transition-opacity focus:outline-none" aria-label="Abrir menú de navegación">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+    <!-- Mobile Fullscreen Navigation con Scroll Lock -->
+    <div id="mobile-menu" class="fixed inset-0 bg-luxuryBlack/98 z-50 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:hidden">
+        <div class="flex justify-between items-center border-b border-white/10 pb-6">
+            <span class="text-xl font-serif tracking-[0.15em] text-white">DIRGNI STUDIO</span>
+            <button id="close-menu-btn" class="text-white p-2 hover:opacity-80 focus:outline-none" aria-label="Cerrar menú de navegación">
+                <i data-lucide="x" class="w-6 h-6"></i>
             </button>
         </div>
-
-        <!-- Mobile Fullscreen Navigation -->
-        <div id="mobile-menu" class="fixed inset-0 bg-luxuryBlack/98 z-40 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-8 lg:hidden">
-            <div class="flex justify-between items-center border-b border-white/10 pb-6">
-                <span class="text-2xl font-serif tracking-[0.15em] text-white">DIRGNI STUDIO</span>
-                <button id="close-menu-btn" class="text-white hover:opacity-80 focus:outline-none" aria-label="Cerrar menú de navegación">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <nav class="flex flex-col space-y-8 text-lg font-serif tracking-[0.1em] text-center my-auto text-white/90">
-                <a href="#inicio" class="hover:text-luxuryGold transition-colors">Inicio</a>
-                <a href="#filosofia" class="hover:text-luxuryGold transition-colors">Nosotros</a>
-                <a href="#servicios" class="hover:text-luxuryGold transition-colors">Servicios</a>
-                <a href="#galeria" class="hover:text-luxuryGold transition-colors">Galería</a>
-                <a href="#opiniones" class="hover:text-luxuryGold transition-colors">Opiniones</a>
-                <a href="#contacto" class="hover:text-luxuryGold transition-colors">Contacto</a>
-            </nav>
-            <div class="border-t border-white/10 pt-6 text-center">
-                <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="w-full inline-block py-4 border border-luxuryNude text-luxuryNude uppercase tracking-[0.15em] text-xs hover:bg-luxuryNude hover:text-luxuryBlack transition-all duration-300">
-                    Reservar por WhatsApp
-                </a>
-            </div>
+        <nav class="flex flex-col space-y-6 text-base font-serif tracking-[0.1em] text-center my-auto text-white/90">
+            <a href="#inicio" class="hover:text-luxuryGold transition-colors">Inicio</a>
+            <a href="#filosofia" class="hover:text-luxuryGold transition-colors">Nosotros</a>
+            <a href="#servicios" class="hover:text-luxuryGold transition-colors">Servicios</a>
+            <a href="#galeria" class="hover:text-luxuryGold transition-colors">Galería</a>
+            <a href="#opiniones" class="hover:text-luxuryGold transition-colors">Opiniones</a>
+            <a href="#contacto" class="hover:text-luxuryGold transition-colors">Contacto</a>
+        </nav>
+        <div class="border-t border-white/10 pt-6 text-center">
+            <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="w-full inline-block py-4 border border-luxuryNude text-luxuryNude uppercase tracking-[0.15em] text-xs hover:bg-luxuryNude hover:text-luxuryBlack transition-all duration-300">
+                Reservar por WhatsApp
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-luxuryBlack py-24">

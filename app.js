@@ -202,6 +202,7 @@ function initNavbarScroll() {
 }
 
 
+// Manejo del menú móvil previniendo el desplazamiento del cuerpo
 function initMobileMenu() {
     const mobileMenu = document.getElementById("mobile-menu");
     const menuBtn = document.getElementById("mobile-menu-btn");
@@ -210,14 +211,16 @@ function initMobileMenu() {
 
     const openMenu = () => {
         mobileMenu.classList.remove("translate-x-full");
+        document.body.classList.add("overflow-hidden");
     };
 
     const closeMenu = () => {
         mobileMenu.classList.add("translate-x-full");
+        document.body.classList.remove("overflow-hidden");
     };
 
-    menuBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
+    menuBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
     navLinks.forEach(link => link.addEventListener("click", closeMenu));
 }
 
@@ -253,6 +256,7 @@ function initServiceTabs() {
 window.carouselIndices = window.carouselIndices || {};
 window.carouselIntervals = window.carouselIntervals || {};
 
+// Carrusel seguro y accesible para dispositivos táctiles
 window.moveCarousel = function(serviceKey, direction) {
     const slidesContainer = document.getElementById(`carousel-slides-${serviceKey}`);
     if (!slidesContainer) return;
@@ -267,10 +271,8 @@ window.moveCarousel = function(serviceKey, direction) {
     window.carouselIndices[serviceKey] = (window.carouselIndices[serviceKey] + direction + totalSlides) % totalSlides;
     const currentIndex = window.carouselIndices[serviceKey];
 
-    // Desplazamiento horizontal fluido
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    // Actualización de los indicadores (dots)
     for (let i = 0; i < totalSlides; i++) {
         const dot = document.getElementById(`dot-${serviceKey}-${i}`);
         if (dot) {

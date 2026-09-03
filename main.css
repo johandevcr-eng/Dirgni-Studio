@@ -1,11 +1,16 @@
-/* Typography & Core Styling Variable Overrides */
-html {
-    scroll-behavior: smooth;
+/* Ajustes para evitar el desbordamiento horizontal en pantallas móviles pequeñas */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* Mejora de la interacción táctil en carrusel móvil */
+@media (max-width: 1024px) {
+    .group\/carousel button {
+        opacity: 0.8 !important;
+        background-color: rgba(18, 18, 18, 0.7);
+        padding: 0.5rem;
+    }
 }
 
 /* Custom Scrollbar for Luxury Aesthetic */
