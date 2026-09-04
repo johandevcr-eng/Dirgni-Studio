@@ -300,7 +300,16 @@ window.stopCarouselAutoplay = function(serviceKey) {
     // Limpiar intervalos de autoplay anteriores al cambiar de categoría
     Object.keys(window.carouselIntervals || {}).forEach(key => window.stopCarouselAutoplay(key));
 
+    // Mapeo de nombres legibles para SEO en atributos alt
+    const categoryNames = {
+        maquillaje: "Maquillaje Profesional",
+        estilismo: "Estilismo Capilar",
+        personal: "Asesoría de Marca Personal"
+    };
+
+    const currentCatName = categoryNames[categoryId] || "Servicio de Belleza";
     const items = SERVICES_DATA[categoryId] || [];
+
     servicesGrid.innerHTML = items.map((service, idx) => {
         const serviceKey = `${categoryId}-${idx}`;
         const imageList = service.images || [service.image];
@@ -316,7 +325,10 @@ window.stopCarouselAutoplay = function(serviceKey) {
                     <!-- Contenedor deslizable -->
                     <div id="carousel-slides-${serviceKey}" class="flex h-full w-full transition-transform duration-700 ease-out">
                         ${imageList.map((imgUrl, imgIdx) => `
-                            <img src="${imgUrl}" alt="${service.name} ${imgIdx + 1}" class="w-full h-full object-cover flex-shrink-0">
+                            <img src="${imgUrl}" 
+                                 alt="${currentCatName} - ${service.name} en Dirgni Studio Cartago (Muestra ${imgIdx + 1})" 
+                                 loading="lazy"
+                                 class="w-full h-full object-cover flex-shrink-0">
                         `).join('')}
                     </div>
 
@@ -327,10 +339,10 @@ window.stopCarouselAutoplay = function(serviceKey) {
 
                     ${imageList.length > 1 ? `
                         <!-- Flechas de navegación -->
-                        <button type="button" onclick="moveCarousel('${serviceKey}', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-luxuryBlack/60 text-luxuryNude p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-luxuryBlack">
+                        <button type="button" aria-label="Imagen anterior" onclick="moveCarousel('${serviceKey}', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-luxuryBlack/60 text-luxuryNude p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-luxuryBlack">
                             &#10094;
                         </button>
-                        <button type="button" onclick="moveCarousel('${serviceKey}', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-luxuryBlack/60 text-luxuryNude p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-luxuryBlack">
+                        <button type="button" aria-label="Siguiente imagen" onclick="moveCarousel('${serviceKey}', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-luxuryBlack/60 text-luxuryNude p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:bg-luxuryBlack">
                             &#10095;
                         </button>
 

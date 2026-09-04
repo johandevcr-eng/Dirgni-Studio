@@ -1,0 +1,41 @@
+# netlify.toml
+
+# Configuración del entorno de construcción
+[build]
+  publish = "."
+
+# Redirecciones globales: Forzar HTTPS / SSL y evitar duplicación de URL
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Encabezados HTTP de seguridad y caché
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Forzar la conexión HTTPS mediante HSTS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Seguridad general contra Clickjacking y Sniffing
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Caché agresiva para recursos estáticos pesados (Imágenes AVIF, WebP, SVG)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Caché para estilos CSS y scripts JavaScript
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
