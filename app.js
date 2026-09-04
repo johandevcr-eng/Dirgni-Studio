@@ -180,15 +180,20 @@ const TESTIMONIALS = [
 ];
 
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     lucide.createIcons();
     initNavbarScroll();
     initMobileMenu();
     initServiceTabs();
     initTestimonials();
-    initScrollAnimations();
+    
+    // Ejecutar animaciones e intervalos cuando el hilo principal esté libre
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => initScrollAnimations());
+    } else {
+        setTimeout(initScrollAnimations, 200);
+    }
 });
-
 
 function initNavbarScroll() {
     const header = document.getElementById("main-header");
@@ -326,9 +331,9 @@ window.stopCarouselAutoplay = function(serviceKey) {
                     <div id="carousel-slides-${serviceKey}" class="flex h-full w-full transition-transform duration-700 ease-out">
                         ${imageList.map((imgUrl, imgIdx) => `
                             <img src="${imgUrl}" 
-                                 alt="${currentCatName} - ${service.name} en Dirgni Studio Cartago (Muestra ${imgIdx + 1})" 
-                                 loading="lazy"
-                                 class="w-full h-full object-cover flex-shrink-0">
+                                alt="${currentCatName} - ${service.name} en Dirgni Studio Cartago (Muestra ${imgIdx + 1})" 
+                                loading="${imgIdx === 0 && idx < 2 ? 'eager' : 'lazy'}"
+                                class="w-full h-full object-cover flex-shrink-0">
                         `).join('')}
                     </div>
 
