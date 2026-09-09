@@ -89,8 +89,34 @@
 </head>
 <body class="bg-luxuryWarmIvory text-luxuryBlack font-sans antialiased selection:bg-luxuryNude selection:text-luxuryBlack">
 
-    <!-- Header / Sticky Navigation -->
-    <!-- Se ajustó el espaciado en secciones para móvil y el menú fullscreen -->
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="z-index: 99999;" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl bg-luxuryBlack/95 backdrop-blur-md text-white p-6 sm:p-8 hidden rounded-xl shadow-2xl border border-white/10"> 
+  <div class="flex flex-col md:flex-row items-center justify-between gap-6"> 
+    <p class="text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-2xl text-center md:text-left"> 
+      Usamos cookies de análisis para mejorar el sitio. Puedes aceptarlas, usar solo las esenciales o rechazarlas. 
+      <a href="/politicas" class="underline text-luxuryNude hover:text-white transition-colors">Política de Privacidad</a>. 
+    </p> 
+    <div class="flex flex-wrap items-center justify-center sm:justify-end gap-4 shrink-0 w-full sm:w-auto"> 
+  <!-- Botón Rechazar -->
+  <button id="cookie-reject" class="px-6 py-3.5 text-xs font-medium uppercase tracking-[0.15em] text-white/70 hover:text-white border border-white/20 hover:border-white/60 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 transform active:scale-95 focus:outline-none">
+    Rechazar
+  </button> 
+
+  <!-- Botón Solo esenciales -->
+  <button id="cookie-essential" class="px-6 py-3.5 text-xs font-medium uppercase tracking-[0.15em] text-white border border-luxuryNude/40 hover:border-luxuryNude bg-luxuryNude/10 hover:bg-luxuryNude/20 rounded-full transition-all duration-300 transform active:scale-95 focus:outline-none">
+    Solo esenciales
+  </button> 
+
+  <!-- Botón Aceptar -->
+  <button id="cookie-accept" class="px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-luxuryBlack bg-luxuryNude hover:bg-white border border-luxuryNude rounded-full shadow-lg hover:shadow-luxuryNude/20 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 focus:outline-none">
+    Aceptar
+  </button> 
+</div>
+  </div> 
+</div>
+
+<!-- Header / Sticky Navigation -->
+<!-- Se ajustó el espaciado en secciones para móvil y el menú fullscreen -->
 <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent py-4 lg:py-6 border-b border-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
         <a href="#inicio" class="text-xl sm:text-2xl lg:text-3xl font-serif tracking-[0.2em] hover:opacity-85 transition-opacity text-white duration-300" id="header-logo">
@@ -327,23 +353,6 @@
     </div>
 </section>
 
-    <!-- Lightbox Modal container -->
-    <div id="lightbox" class="fixed inset-0 bg-luxuryBlack/95 z-[100] hidden flex items-center justify-center p-4">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white/80 hover:text-white transition-colors duration-200" aria-label="Cerrar galería">
-            <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-        <button id="lightbox-prev" class="absolute left-4 lg:left-8 text-white/80 hover:text-white transition-colors duration-200" aria-label="Anterior imagen">
-            <i data-lucide="chevron-left" class="w-10 h-10"></i>
-        </button>
-        <div class="max-w-5xl max-h-[80vh] flex flex-col items-center">
-            <img id="lightbox-img" src="" alt="Vista ampliada" class="max-w-full max-h-[70vh] object-contain border border-white/10 shadow-2xl">
-            <p id="lightbox-caption" class="text-white/65 mt-4 text-xs uppercase tracking-widest font-light"></p>
-        </div>
-        <button id="lightbox-next" class="absolute right-4 lg:right-8 text-white/80 hover:text-white transition-colors duration-200" aria-label="Siguiente imagen">
-            <i data-lucide="chevron-right" class="w-10 h-10"></i>
-        </button>
-    </div>
-
     <!-- Value Propositions (Diferenciales) -->
     <section class="py-24 lg:py-32 bg-luxuryBlack text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -351,7 +360,7 @@
                 <div class="flex flex-col gap-4 opacity-0 translate-y-10 transition-all duration-1000 ease-out scroll-animated">
                     <span class="text-luxuryGold font-serif text-xl tracking-widest block">I</span>
                     <h3 class="text-lg font-serif tracking-wider font-light">Atención Personalizada</h3>
-                    <p class="text-white/60 text-xs leading-relaxed font-light">Cada visita es concebida únicamente para ti, comenzando por un diagnóstico integral.</p>
+                    <p class="text-white/60 text-xs leading-relaxed font-light">Ofrecemos un servicio exclusivo y adaptado a tus necesidades individuales.</p>
                 </div>
                 <div class="flex flex-col gap-4 opacity-0 translate-y-10 transition-all duration-1000 ease-out scroll-animated" style="transition-delay: 0.1s">
                     <span class="text-luxuryGold font-serif text-xl tracking-widest block">II</span>
@@ -533,7 +542,7 @@
                     📞 +506 8827 4552
                 </p>
                 <p class="text-white/50 text-xs leading-relaxed font-light">
-                    ✉️ #
+                    ✉️ dirgni.salon@gmail.com
                 </p>
             </div>
         </div>
@@ -552,5 +561,6 @@
         </span>
     </a>
     <script type="module" src="app.js"></script>
+    <script src="cookie-consent.js" defer></script> 
 </body>
 </html>
