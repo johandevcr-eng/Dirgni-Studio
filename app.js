@@ -70,7 +70,7 @@ const SERVICES_DATA = {
     estilismo: [
         {
             name: "Color",
-            description: "Nuestro servicio de peluquería incluye:​ Corte de cabello, diseñado para realzar tu estilo y personalidad, adaptándonos a tus facciones y preferencias. Desde cortes clásicos hasta tendencias modernas, te ayudamos a encontrar el look perfecto.​ Coloración profesional: Trabajamos con productos de alta calidad para lograr tonos vibrantes, naturales o fantasía, siempre cuidando la salud de tu cabello. Ofrecemos técnicas como balayage, babylights, iluminaciones, retoques de raíz y cambios de color completos. Nuestro objetivo es brindarte un resultado impecable, resaltando tu belleza con un cabello sano y radiante..",
+            description: "Nuestro servicio de peluquería incluye:​ Corte de cabello, diseñado para realzar tu estilo y personalidad, adaptándonos a tus facciones y preferencias. Desde cortes clásicos hasta tendencias modernas, te ayudamos a encontrar el look perfecto.​ Coloración profesional: Trabajamos con productos de alta calidad para lograr tonos vibrantes, naturales o fantasía, siempre cuidando la salud de tu cabello. Ofrecemos técnicas como balayage, babylights, iluminaciones, retoques de raíz y cambios de color completos. Nuestro objetivo es brindarte un resultado impecable, resaltando tu belleza con un cabello sano y radiante.",
             duration: "3h",
             price: "Consultar",
             image: "img/color.avif" 
@@ -157,19 +157,19 @@ const TESTIMONIALS = [
     {
         name: "Evelyn Rodríguez Vargas",
         // location: "#",
-        service: "Blow dry, Make-up services",
+        service: "Secado con secador, Servicios de maquillaje",
         text: "Mi experiencia fue muy positiva, agende la cita sin conocer a Ingrid, ya que soy de Guanacaste y tenía mi graduación en el TEC de Cartago, mis expectativas fueron superadas ya que me peino como quería verme y el proceso de maquillaje es muy exclusivo a lo que en otros lugares me he maquillado, por lo que me duró mucho y mi piel se veía súper hidratada por lo que en la sesión de fotos se evidenció el gran trabajo realizado. Me encantó y súper recomendada, es una profesional dulce y servicial"
     },
     {
         name: "Carmen",
         // location: "#",
-        service: "Hairstyling",
+        service: "Peinado",
         text: "Ingrid es una estilista de 10 estrellas, el trato, amabilidad, empatía y amor con que te atiende y hace su trabajo es único. Ingrid se esmera desde un inicio por darte toda la asesoría necesaria, te aclara las dudas con todo el profesionalismo y paciencia del mundo, y siempre busca la satisfacción de sus clientas. Si usted está buscando un lugar donde la chineen, la traten bien y le cuiden su cabello, no dude en ir con Ingrid, porque va a estar en las mejores manos. Además va a recibir una atención 100% personalizada,  por lo que no va a tener que esperar por qué le atiendan."
     },
     {
         name: "Fiorella Ramírez",
         // location: "#",
-        service: "Hairstyling",
+        service: "Peinado",
         text: "Era la primera vez que iba donde Ingrid, y me encantó el corte de cabello que me realizó,el servicio al cliente es excelente, es super atenta, se toma el tiempo de explicarte que va de acuerdo a tu rostro, los cortes y te pregunta siempre respetando tus decisiones como clienta, y siempre se toma el tiempo para realizar bien su trabajo y respeta los horarios del tiempo del cliente y eso me encantó, verdaderamente recomiendo ir con Ingrid ella es excelente estilista, además que utiliza productos que cuidan tu cabello ❤️✨"
         
         // name: "Valeria Monge",
