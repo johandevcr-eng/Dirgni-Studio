@@ -34,7 +34,8 @@ const SERVICES_DATA = {
                 "img/dirgni_eventos7.avif",
                 "img/dirgni_eventos8.avif",
                 "img/dirgni_eventos9.avif",
-                "img/dirgni_eventos10.avif"
+                "img/dirgni_eventos10.avif",
+                "img/dirgni_eventos11.webp"
             ]
                 
         },
