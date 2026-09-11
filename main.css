@@ -106,3 +106,89 @@ html, body {
   z-index: 99999 !important;
   isolation: isolate;
 }
+
+/* --- Respaldo en CSS puro para politicas.html ---
+   Estas reglas no dependen del build de Tailwind: siguen funcionando
+   aunque css/tailwind.css todavía no se haya recompilado con las
+   clases nuevas del HTML. Es seguro dejarlas incluso después de
+   recompilar Tailwind (son inofensivas si las utilidades ya existen). */
+
+/* Enlace "Saltar al contenido": oculto hasta recibir foco */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  background: #121212;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Espacio de despeje bajo el header fijo y antes del footer del sitio,
+   en la página de políticas (espacio EXTERIOR a la tarjeta) */
+#politicas-wrapper {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+@media (min-width: 640px) {
+  #politicas-wrapper {
+    padding-top: 4.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  #politicas-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Espacio INTERIOR de la tarjeta de contenido: más aire arriba y abajo
+   del texto, independiente de si py-12/lg:py-20 ya están compilados */
+#main-content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+  #main-content {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Offset del ancla para el índice interno, sin depender de scroll-mt-* */
+#main-content [id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Estilos de impresión: útil para documentos legales como politicas.html.
+   Oculta navegación, footer editorial y banner de cookies; deja texto
+   legible en negro sobre blanco. */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    main {
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+}
