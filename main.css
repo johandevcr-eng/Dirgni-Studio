@@ -107,6 +107,35 @@ html, body {
   isolation: isolate;
 }
 
+/* --- Respaldo en CSS puro para el menú móvil (#mobile-menu) ---
+   La utilidad "bg-luxuryBlack/98" usada en el HTML no está incluida en
+   el build actual de tailwind.css (sí existen /60, /90 y /95, pero no
+   /98), así que el panel del menú se queda sin fondo y se ve
+   transparente sobre el contenido de la página al abrirse en móvil.
+   Esta regla no depende del build de Tailwind: sigue funcionando
+   aunque css/tailwind.css no se haya recompilado con la clase nueva,
+   y es inofensiva si en algún momento sí se recompila. */
+#mobile-menu {
+  background-color: rgba(18, 18, 18, 0.98);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  isolation: isolate;
+}
+
+/* En pantallas muy bajas (celulares en horizontal o con poca altura),
+   evita que el contenido del menú se apriete o se corte: permite
+   scroll interno y da un poco más de espacio entre los enlaces. */
+@media (max-height: 500px) {
+  #mobile-menu {
+    overflow-y: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  #mobile-menu nav {
+    gap: 1rem;
+  }
+}
+
 /* --- Respaldo en CSS puro para politicas.html ---
    Estas reglas no dependen del build de Tailwind: siguen funcionando
    aunque css/tailwind.css todavía no se haya recompilado con las

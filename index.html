@@ -145,30 +145,37 @@
             <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
     </div>
-
-    <!-- Mobile Fullscreen Navigation con Scroll Lock -->
-    <div id="mobile-menu" class="fixed inset-0 bg-luxuryBlack/98 z-50 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:hidden">
-        <div class="flex justify-between items-center border-b border-white/10 pb-6">
-            <span class="text-xl font-serif tracking-[0.15em] text-white">DIRGNI STUDIO</span>
-            <button id="close-menu-btn" class="text-white p-2 hover:opacity-80 focus:outline-none" aria-label="Cerrar menú de navegación">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-        </div>
-        <nav class="flex flex-col space-y-6 text-base font-serif tracking-[0.1em] text-center my-auto text-white/90">
-            <a href="#inicio" class="hover:text-luxuryGold transition-colors">Inicio</a>
-            <a href="#filosofia" class="hover:text-luxuryGold transition-colors">Nosotros</a>
-            <a href="#servicios" class="hover:text-luxuryGold transition-colors">Servicios</a>
-            <a href="#conocenos" class="hover:text-luxuryGold transition-colors">Conócenos</a>
-            <a href="#opiniones" class="hover:text-luxuryGold transition-colors">Opiniones</a>
-            <a href="#contacto" class="hover:text-luxuryGold transition-colors">Contacto</a>
-        </nav>
-        <div class="border-t border-white/10 pt-6 text-center">
-            <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="w-full inline-block py-4 border border-luxuryNude text-luxuryNude uppercase tracking-[0.15em] text-xs hover:bg-luxuryNude hover:text-luxuryBlack transition-all duration-300">
-                Reservar por WhatsApp
-            </a>
-        </div>
-    </div>
 </header>
+
+<!-- Mobile Fullscreen Navigation con Scroll Lock -->
+<!-- Se movió fuera de <header> a propósito: el header recibe la clase
+     "header-scrolled" (con backdrop-filter) al hacer scroll, y un
+     backdrop-filter en un ancestro crea un "containing block" nuevo
+     para los descendientes fixed, por lo que este panel dejaba de
+     posicionarse respecto a toda la pantalla y se encogía al tamaño
+     del header en cuanto se detectaba el mínimo scroll. Al ser hermano
+     de <header> en vez de hijo, ya no se ve afectado por eso. -->
+<div id="mobile-menu" class="fixed inset-0 bg-luxuryBlack/98 z-50 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 lg:hidden">
+    <div class="flex justify-between items-center border-b border-white/10 pb-6">
+        <span class="text-xl font-serif tracking-[0.15em] text-white">DIRGNI STUDIO</span>
+        <button id="close-menu-btn" class="text-white p-2 hover:opacity-80 focus:outline-none" aria-label="Cerrar menú de navegación">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+    </div>
+    <nav class="flex flex-col space-y-6 text-base font-serif tracking-[0.1em] text-center my-auto text-white/90">
+        <a href="#inicio" class="hover:text-luxuryGold transition-colors">Inicio</a>
+        <a href="#filosofia" class="hover:text-luxuryGold transition-colors">Nosotros</a>
+        <a href="#servicios" class="hover:text-luxuryGold transition-colors">Servicios</a>
+        <a href="#conocenos" class="hover:text-luxuryGold transition-colors">Conócenos</a>
+        <a href="#opiniones" class="hover:text-luxuryGold transition-colors">Opiniones</a>
+        <a href="#contacto" class="hover:text-luxuryGold transition-colors">Contacto</a>
+    </nav>
+    <div class="border-t border-white/10 pt-6 text-center">
+        <a href="https://wa.me/50688274552?text=Hola%20Dirgni%20Studio,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20agendar%20una%20sesi%C3%B3n%20de%20belleza%20personalizada." target="_blank" rel="noopener noreferrer" class="w-full inline-block py-4 border border-luxuryNude text-luxuryNude uppercase tracking-[0.15em] text-xs hover:bg-luxuryNude hover:text-luxuryBlack transition-all duration-300">
+            Reservar por WhatsApp
+        </a>
+    </div>
+</div>
 
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-luxuryBlack py-24">
