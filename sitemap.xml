@@ -5,7 +5,7 @@
     <priority>1.0</priority> 
     <lastmod>2026-09-04</lastmod> 
   </url> 
-</urlset>
+
  <url> 
     <loc>https://dirgnistudio.com/terminos</loc> 
     <priority>0.3</priority> 
@@ -16,3 +16,5 @@
     <priority>0.3</priority> 
     <lastmod>2026-09-04</lastmod> 
   </url> 
+
+  </urlset>
