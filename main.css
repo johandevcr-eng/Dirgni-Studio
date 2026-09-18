@@ -221,3 +221,48 @@ html, body {
         text-decoration: underline !important;
     }
 }
+
+/* --- Galería de la sección "MI FORMACIÓN" ---
+   Estructura: tarjeta en columna en móvil (foto arriba, nombre abajo)
+   y en fila desde 640px (foto a la izquierda, nombre a la derecha),
+   igual que la galería de referencia.
+
+   Estas reglas NO dependen del build de Tailwind: las utilidades que
+   harían falta para el ancho de la foto (sm:w-[42%], min-w-0) no están
+   incluidas en css/tailwind.css, así que se resuelven aquí. Son
+   inofensivas si en algún momento se recompila Tailwind. */
+.formacion-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+
+.formacion-card-body {
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .formacion-card-media {
+    width: 42%;
+    aspect-ratio: auto;
+    align-self: stretch;
+    min-height: 16rem;
+  }
+
+  .formacion-card-body {
+    flex: 1 1 auto;
+  }
+}
+
+/* Respeta la preferencia del sistema de reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .formacion-card img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Respaldo: "text-justify" no está en el build actual de css/tailwind.css */
+.text-justify {
+  text-align: justify;
+}
